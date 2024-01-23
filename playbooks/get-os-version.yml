@@ -1,0 +1,10 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: false
+  tasks:
+  - name: Get OS Version
+    debug:
+     msg: "The server Operating system is {{ ansible_distribution }} {{ ansible_distribution_version }}"
+  - name: Write Version
+    local_action: shell echo "{{ inventory_hostname }} is running {{ ansible_distribution_version }}"
