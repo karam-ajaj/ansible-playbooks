@@ -3,7 +3,7 @@
   gather_facts: true
   become: true
   tasks:
-  - name: Upgrade all Debian packages to their latest version
+  - name: Upgrade all Ubuntu packages to their latest version
     ansible.builtin.shell: apt upgrade -y
     register: apt_upgrade_output
     when: ansible_distribution == 'Ubuntu'
