@@ -10,9 +10,9 @@
     when: ansible_distribution == 'Ubuntu'
   - name: Update all Alpine packages to their latest version
     ansible.builtin.shell:  apk update
-    register: disk_usage
+    register: apk_update_output
     when: ansible_distribution == 'Alpine'
   - name: Display output
     ansible.builtin.debug:
-      var: disk_usage.stdout_lines
+      var: apk_update_output.stdout_lines
     when: ansible_distribution == 'Alpine'
