@@ -7,3 +7,8 @@
     ansible.builtin.apt:
       name: "*"
       state: latest
+    when: ansible_facts['os_family'] == "Debian"
+    community.general.apk:
+      name: "*"
+      state: latest
+    when: ansible_facts['os_family'] == "Alpine"
