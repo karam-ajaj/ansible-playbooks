@@ -6,6 +6,8 @@
   - name: Check disk usage and grep for ubuntu LVM
     ansible.builtin.shell: df -h | grep /dev/mapper/ubuntu--vg-ubuntu--lv
     register: disk_usage
+    when: ansible_facts['os_family'] == "Debian"
   - name: Display output
     ansible.builtin.debug:
       var: disk_usage.stdout_lines
+      when: ansible_facts['os_family'] == "Debian"
