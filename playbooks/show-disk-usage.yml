@@ -4,10 +4,12 @@
   become: true
   tasks:    
   - name: Check disk usage and grep for ubuntu LVM
+    debug msg="hello from debian"
     ansible.builtin.shell: df -h | grep /dev/mapper/ubuntu--vg-ubuntu--lv
     register: disk_usage
     when: ansible_distribution == 'Debian'
   - name: Display output
+    debug msg="hello from debian"
     ansible.builtin.debug:
       var: disk_usage.stdout_lines
       when: ansible_distribution == 'Debian'
