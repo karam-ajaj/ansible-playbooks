@@ -4,9 +4,12 @@
   become: true
   tasks:
   - name: Update all Debian packages to their latest version
-    ansible.builtin.apt:
-      name: "*"
-      state: latest
+    ansible.builtin.shell: apt update
+    register: apt_update_output
+    when: ansible_distribution == 'Ubuntu'
+  - name: Display output
+    ansible.builtin.debug:
+      var: apt_update_output.stdout_lines
     when: ansible_distribution == 'Ubuntu'
   - name: Update all Alpine packages to their latest version
     ansible.builtin.shell:  apk update
