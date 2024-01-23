@@ -4,7 +4,7 @@
   become: true
   tasks:
   - name: Upgrade all Debian packages to their latest version
-    ansible.builtin.shell: apt upgrade
+    ansible.builtin.shell: apt upgrade -y
     register: apt_upgrade_output
     when: ansible_distribution == 'Ubuntu'
   - name: Display output
@@ -12,7 +12,7 @@
       var: apt_upgrade_output.stdout_lines
     when: ansible_distribution == 'Ubuntu'
   - name: Upgrade all Alpine packages to their latest version
-    ansible.builtin.shell:  apk upgrade
+    ansible.builtin.shell:  apk upgrade -y
     register: apk_upgrade_output
     when: ansible_distribution == 'Alpine'
   - name: Display output
