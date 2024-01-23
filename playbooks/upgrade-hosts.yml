@@ -4,7 +4,7 @@
   become: true
   tasks:
   - name: Upgrade all Debian packages to their latest version
-    ansible.builtin.shell: apt upgrade\
+    ansible.builtin.shell: apt upgrade
     register: apt_upgrade_output
     when: ansible_distribution == 'Ubuntu'
   - name: Display output
