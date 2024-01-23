@@ -3,8 +3,8 @@
   gather_facts: true
   become: true
   tasks:    
-  - name: Check disk usage and grep for /dev/sda1
-    ansible.builtin.shell: df -h | grep /dev/sda1
+  - name: Check disk usage and grep for ubuntu LVM
+    ansible.builtin.shell: df -h | grep /dev/mapper/ubuntu--vg-ubuntu--lv
     register: disk_usage
   - name: Display output
     ansible.builtin.debug:
