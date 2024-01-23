@@ -10,5 +10,5 @@
   - name: Display output
     ansible.builtin.debug:
       var: disk_usage.stdout_lines
-      when: ansible_distribution == 'Debian'
       msg: "hello from debian"
+    when: ansible_distribution == 'Debian'
