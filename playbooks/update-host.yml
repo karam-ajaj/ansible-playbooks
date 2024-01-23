@@ -7,9 +7,12 @@
     ansible.builtin.apt:
       name: "*"
       state: latest
-    when: ansible_facts['os_family'] == "Debian"
+    when: ansible_distribution == 'Ubuntu'
   - name: Update all Alpine packages to their latest version
-    community.general.apk:
-      name: "*"
-      state: latest
-    when: ansible_facts['os_family'] == "Alpine"
+    ansible.builtin.shell:  apk update
+    register: disk_usage
+    when: ansible_distribution == 'Alpine'
+  - name: Display output
+    ansible.builtin.debug:
+      var: disk_usage.stdout_lines
+    when: ansible_distribution == 'Alpine'
