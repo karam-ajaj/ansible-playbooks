@@ -11,3 +11,11 @@
     ansible.builtin.debug:
       var: disk_usage.stdout_lines
     when: ansible_distribution == 'Ubuntu'
+  - name: Check disk usage and grep for Alpine /var
+    ansible.builtin.shell:  df -h | grep /var
+    register: disk_usage
+    when: ansible_distribution == 'Alpine'
+  - name: Display output
+    ansible.builtin.debug:
+      var: disk_usage.stdout_lines
+    when: ansible_distribution == 'Alpine'
