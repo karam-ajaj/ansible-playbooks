@@ -3,7 +3,6 @@
   become: true
   tasks:
   - name: create ssh login welcome
-    register: output.stdout_lines
     copy:
       dest: "/etc/motd"
       content: |
@@ -16,6 +15,5 @@
         
         
         
-  - name: Display output
-    ansible.builtin.debug:
-      var: output.stdout_lines
+  - name: What is my ansible_hostname
+    debug: var={{ansible_hostname}}
