@@ -16,4 +16,4 @@
       var: apk_upgrade_output.stdout_lines
   - name: save configs
 #   alias save='/etc/save.sh'
-    ansible.builtin.shell: save
+    ansible.builtin.shell: /etc/save.sh
