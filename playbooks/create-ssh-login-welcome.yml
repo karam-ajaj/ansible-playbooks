@@ -1,0 +1,18 @@
+---
+- hosts: all
+  gather_facts: true
+  become: true
+  tasks:
+  - name: create ssh login welcome
+    ansible.builtin.shell:  cat << 'EOF' > /etc/motd
+
+
+
+╦ ╦┌─┐┬  ┌─┐┌─┐┌┬┐┌─┐  ┌┬┐┌─┐  ╦╔═┌─┐┬─┐┌─┐┌┬┐  ┬  ┌─┐┌┐ ┬
+║║║├┤ │  │  │ ││││├┤    │ │ │  ╠╩╗├─┤├┬┘├─┤│││  │  ├─┤├┴┐│
+╚╩╝└─┘┴─┘└─┘└─┘┴ ┴└─┘   ┴ └─┘  ╩ ╩┴ ┴┴└─┴ ┴┴ ┴  ┴─┘┴ ┴└─┘o
+
+
+
+
+EOF
