@@ -4,7 +4,7 @@
   become: true
   tasks:
   - name: create ssh login welcome
-    ansible.builtin.shell:  cat << 'EOF' > /etc/motd
+    ansible.builtin.shell:  echo "
 
     
     ╦ ╦┌─┐┬  ┌─┐┌─┐┌┬┐┌─┐  ┌┬┐┌─┐  ╦╔═┌─┐┬─┐┌─┐┌┬┐  ┬  ┌─┐┌┐ ┬
@@ -12,4 +12,4 @@
     ╚╩╝└─┘┴─┘└─┘└─┘┴ ┴└─┘   ┴ └─┘  ╩ ╩┴ ┴┴└─┴ ┴┴ ┴  ┴─┘┴ ┴└─┘o
     
     
-    EOF
+    EOF" >> /etc/motd
