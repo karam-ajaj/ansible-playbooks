@@ -17,3 +17,5 @@
   - name: save configs
 #   alias save='/etc/save.sh'
     ansible.builtin.shell: /etc/save.sh
+  - name: reboot
+    ansible.builtin.shell:  reboot
