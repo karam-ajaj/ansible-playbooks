@@ -1,0 +1,11 @@
+---
+- hosts: all
+  gather_facts: true
+  become: true
+  tasks:
+  - name: docker prune system
+    ansible.builtin.shell:  docker system prune --volumes -af
+    register: prune_output
+  - name: Display output
+    ansible.builtin.debug:
+      var: prune_output.stdout_lines
