@@ -6,14 +6,12 @@
     copy:
       dest: "/etc/motd"
       content: |
-        
-        
-        
+        /n
+        /n
+        /n
         ╦ ╦┌─┐┬  ┌─┐┌─┐┌┬┐┌─┐  ┌┬┐┌─┐  ╦╔═┌─┐┬─┐┌─┐┌┬┐  ┬  ┌─┐┌┐ ┬
         ║║║├┤ │  │  │ ││││├┤    │ │ │  ╠╩╗├─┤├┬┘├─┤│││  │  ├─┤├┴┐│
         ╚╩╝└─┘┴─┘└─┘└─┘┴ ┴└─┘   ┴ └─┘  ╩ ╩┴ ┴┴└─┴ ┴┴ ┴  ┴─┘┴ ┴└─┘o
-        
-        
-        
-  - name: What is my ansible_hostname
-    debug: var={{ansible_hostname}}
+        /n
+        /n
+        /n
