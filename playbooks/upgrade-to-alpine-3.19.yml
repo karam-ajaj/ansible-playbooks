@@ -1,0 +1,18 @@
+---
+- hosts: all
+  gather_facts: true
+  become: true
+  tasks:
+  - name: replace repositories file
+    ansible.builtin.shell:  sed -i 's/3.17/3.19/g' /etc/apk/repositories
+  - name: Update all Alpine packages to their latest version
+    ansible.builtin.shell:  apk update
+    register: apk_update_output
+  - name: Upgrade all Alpine packages to their latest version
+    ansible.builtin.shell:  apk upgrade
+    register: apk_upgrade_output
+  - name: Display output
+    ansible.builtin.debug:
+      var: apk_upgrade_output.stdout_lines
+- name: save configs
+    ansible.builtin.shell:  save
