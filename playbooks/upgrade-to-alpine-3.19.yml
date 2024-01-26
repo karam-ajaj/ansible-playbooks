@@ -15,4 +15,4 @@
     ansible.builtin.debug:
       var: apk_upgrade_output.stdout_lines
 - name: save configs
-    ansible.builtin.shell:  save
+    ansible.builtin.shell:  /etc/save.sh
