@@ -8,9 +8,11 @@
   tasks:
     - name: Gather DRS info about given Cluster
       community.vmware.vmware_drs_group_info:
+        cluster_name: "cluster01"
       register: cluster_drs_group_info
     - name: Gather DRS group info about all clusters in given datacenter
       community.vmware.vmware_drs_group_info:
+        datacenter: "dc01"
       register: cluster_all_drs_group_info
     - name: print DRS info about given Cluster
       ansible.builtin.debug:
