@@ -1,0 +1,16 @@
+---
+- name: drs info
+  hosts: localhost
+  become: false
+  gather_facts: false
+  collections:
+    - community.vmware
+  tasks:
+    - name: Gather VMware tools info installed in VM specified by name
+      community.vmware.vmware_guest_tools_info:
+        datacenter: "dc01"
+        name: "pxvc01"
+      register: vmtools_info
+    - name: print VMware tools info installed in VM specified by name
+      ansible.builtin.debug:
+        var: vmtools_info
