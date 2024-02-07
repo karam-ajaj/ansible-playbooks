@@ -12,7 +12,7 @@
           - os-lin
           - vm_OS_category:os-lin
         #object_name: "{{ item.vm_name }}"
-        object_name: "{{ config.name }}"
+        object_name: "{{ hostvars['os_lin'].ansible_host }}"
         object_type: VirtualMachine
         state: add
       register: tags_info
