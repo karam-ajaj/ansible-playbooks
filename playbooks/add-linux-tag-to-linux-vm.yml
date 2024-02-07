@@ -10,6 +10,10 @@
       ansible.builtin.debug:
         #var: hostvars[inventory_hostname]|json_query('[ansible_host]')
         var: hostvars[inventory_hostname].config.name
+      register: hostvars
+    - name: print hostvars values
+      ansible.builtin.debug:
+        var: hostvars
     - name: Add tags to a virtual machines
       community.vmware.vmware_tag_manager:
         tag_names:
@@ -21,7 +25,6 @@
         state: add
       register: tags_info
       #with_items: "{{ servers }}"
-
     - name: print tags info
       ansible.builtin.debug:
         var: tags_info
