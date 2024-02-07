@@ -6,12 +6,16 @@
   collections:
     - community.vmware
   tasks:
+    - name: Display the specific hostvars that are set in the inventory for each host
+      ansible.builtin.debug:
+        #var: hostvars[inventory_hostname]|json_query('[ansible_host]')
+        var: hostvars[inventory_hostname].config.name
     - name: Add tags to a virtual machines
       community.vmware.vmware_tag_manager:
         tag_names:
           - os-lin
           - vm_OS_category:os-lin
-        object_name: "{{ item.vm_name }}"
+        object_name: "{{ hostvars[inventory_hostname].config.name }}"
         #object_name: {{ hostvars['os_lin'].ansible_host }}
         object_type: VirtualMachine
         state: add
