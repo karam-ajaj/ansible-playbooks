@@ -5,6 +5,7 @@
   gather_facts: false
   collections:
     - community.vmware
+    - community.general
   tasks:  
     - name: Gather all registered virtual machines
       vmware_vm_info:
