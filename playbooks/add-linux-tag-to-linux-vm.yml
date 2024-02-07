@@ -11,11 +11,12 @@
         tag_names:
           - os-lin
           - vm_OS_category:os-lin
-        object_name: "{{ item.vm_name }}"
+        #object_name: "{{ item.vm_name }}"
+        object_name: "{{ config.name }}"
         object_type: VirtualMachine
         state: add
       register: tags_info
-      with_items: "{{ servers }}"
+      #with_items: "{{ servers }}"
 
     - name: print tags info
       ansible.builtin.debug:
