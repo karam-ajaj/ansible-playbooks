@@ -1,0 +1,9 @@
+---
+- name: Example playbook to showcase hostvars
+  hosts: all
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Display the specific hostvars that are set in the inventory for each host
+      ansible.builtin.debug:
+        var: hostvars[inventory_hostname]|json_query('[character_type,spell1,spell2]')
