@@ -11,6 +11,7 @@
         tag_names:
           - linux-os
           - os-tag:linux-os
+        object_name: {{ inventory1 }}
         object_type: VirtualMachine
         state: add
       register: tags_info
