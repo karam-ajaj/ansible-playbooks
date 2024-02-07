@@ -9,8 +9,8 @@
     - name: Add tags to a virtual machine
       community.vmware.vmware_tag_manager:
         tag_names:
-          - Sample_Tag_0002
-          - Category_0001:Sample_Tag_0003
+          - testvm01-tag
+          - testvm01-tag:testvm01-tag
         object_name: testvm01
         object_type: VirtualMachine
         state: add
