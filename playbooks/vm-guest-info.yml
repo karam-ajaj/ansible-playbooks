@@ -33,7 +33,7 @@
       block:
         - name: Get virtual machine info
           vmware_vm_info:
-            folder: "/datacenter/vm/folder"
+            folder: "/dc01/vm"
           delegate_to: localhost
           register: vm_info
         - debug:
