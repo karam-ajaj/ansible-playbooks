@@ -1,0 +1,21 @@
+---
+- name: Add tags to a virtual machine
+  hosts: localhost
+  become: false
+  gather_facts: false
+  collections:
+    - community.vmware
+  tasks:
+    - name: Add tags to a virtual machine
+      community.vmware.vmware_tag_manager:
+        tag_names:
+          - Sample_Tag_0002
+          - Category_0001:Sample_Tag_0003
+        object_name: testvm01
+        object_type: VirtualMachine
+        state: add
+      register: tags_info
+
+    - name: print tags info
+      ansible.builtin.debug:
+        var: tags_info
