@@ -1,0 +1,27 @@
+---
+- name: drs info
+  hosts: localhost
+  become: false
+  gather_facts: false
+  collections:
+    - community.vmware
+  tasks:
+    - name: get 
+      community.vmware.vmware_vm_inventory:
+        properties:
+          - runtime.powerState
+          - config.name
+          - config.guestId
+        filters:
+          - "'ansible_managed' in tags"
+        hostnames:
+          - config.name
+        keyed_groups:
+          - key: config.guestId
+            separator: ''
+          - key: tags
+            separator: ''
+      register: vm_inventory
+    - name: print 
+      ansible.builtin.debug:
+        var: vm_inventory
