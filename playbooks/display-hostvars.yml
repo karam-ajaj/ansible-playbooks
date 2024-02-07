@@ -8,4 +8,4 @@
   tasks:
     - name: Display the specific hostvars that are set in the inventory for each host
       ansible.builtin.debug:
-        var: hostvars[inventory_hostname]|json_query('[character_type,spell1,spell2]')
+        var: hostvars[inventory_hostname]|json_query('[ansible_host]')
