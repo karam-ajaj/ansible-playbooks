@@ -1,3 +1,5 @@
 collections:
   - name: community.vmware
+  
   - name: community.general
+    version: 8.3.0
