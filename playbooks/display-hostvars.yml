@@ -10,10 +10,10 @@
       ansible.builtin.debug:
         #var: hostvars[inventory_hostname]|json_query('[ansible_host]')
         var: hostvars[inventory_hostname].config.name
-      register: hostvars[inventory_hostname].config.name
+      register: hostvars_register
     - name: print hostvars values
       ansible.builtin.debug:
-        var: hostvars[inventory_hostname].config.name
+        var: hostvars_register
     #- name: Set a fact called all_character_types
     #  ansible.builtin.set_fact:
     #    all_character_types: "{{ all_character_types|default([])  + [ hostvars[item]['ansible_host'] ]  }}"
