@@ -6,6 +6,16 @@
   collections:
     - community.general
   tasks:
-    - name: Display the specific hostvars that are set in the inventory for each host
+    #- name: Display the specific hostvars that are set in the inventory for each host
+    #  ansible.builtin.debug:
+    #    var: hostvars[inventory_hostname]|json_query('[ansible_host]')
+    - name: Set a fact called all_character_types
+      ansible.builtin.set_fact:
+        all_character_types: "{{ all_character_types|default([])  + [ hostvars[item]['character_type'] ]  }}"
+      loop: "{{ groups['all'] }}"
+      run_once: true
+
+    - name: Print hostvars that shows servera has all character_types
       ansible.builtin.debug:
-        var: hostvars[inventory_hostname]|json_query('[ansible_host]')
+        var: all_character_types
+    #  when: inventory_hostname == "servera"
