@@ -10,7 +10,7 @@
       community.vmware.vmware_tag_manager:
         tag_names:
           - os-lin
-          - os-tag:os-lin
+#          - os-tag:os-lin
         object_name: "{{ item.vm_name }}"
         object_type: VirtualMachine
         state: add
