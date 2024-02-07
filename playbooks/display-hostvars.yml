@@ -11,7 +11,7 @@
     #    var: hostvars[inventory_hostname]|json_query('[ansible_host]')
     - name: Set a fact called all_character_types
       ansible.builtin.set_fact:
-        all_character_types: "{{ all_character_types|default([])  + [ hostvars[item]['character_type'] ]  }}"
+        all_character_types: "{{ all_character_types|default([])  + [ hostvars[item]['ansible_host'] ]  }}"
       loop: "{{ groups['all'] }}"
       run_once: true
 
