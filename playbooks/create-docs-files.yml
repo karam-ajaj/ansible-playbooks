@@ -1,0 +1,15 @@
+---
+- hosts: all
+  gather_facts: true
+  become: true
+  tasks:
+  - name: Update all Ubuntu packages to their latest version
+    shell: |
+      ## move to the docs location
+      cd /nfs-nas-swarm/config/docs/docs/Docker\ Swarm\ Stacks/
+      ## create a list of all the folders names
+      ls /nfs-nas-swarm/config/ >> list.txt
+      ## add .md to the end of each line
+      sed -i s/$/.md/ list.txt
+      ## create all needed files
+      touch $(cat list.txt)
