@@ -3,7 +3,7 @@
   gather_facts: true
   become: true
   tasks:
-  - name: Update all Ubuntu packages to their latest version
+  - name: create .md files in docs based on config shared folder
     shell: |
       ## move to the docs location
       cd /nfs-nas-swarm/config/docs/docs/Docker\ Swarm\ Stacks/
